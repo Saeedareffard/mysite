@@ -32,10 +32,151 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+	<style>
+		#fh5co-work .work {
+			position: relative;
+			overflow: hidden;
+			transition: transform 0.5s;
+		}
+
+		#fh5co-work .work::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			transition: opacity 0.5s;
+		}
+
+		#fh5co-work .work:hover {
+			transform: scale(1.1);
+		}
+
+		#fh5co-work .work:hover::before {
+			opacity: 1;
+		}
+
+		.interactive-background {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			z-index: -1;
+		}
+
+		.interactive-background canvas {
+			display: block;
+		}
+
+		canvas {
+			display: block;
+			vertical-align: bottom;
+		}
+
+		/* ---- particles.js container ---- */
+		#particles-js {
+			position: absolute;
+			width: 100%;
+			/* height: 100%; */
+			background-color: #025129;
+			background-image: url("");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: 50% 50%;
+		}
+
+		/* ---- stats.js ---- */
+		.count-particles {
+			background: #000022;
+			position: absolute;
+			top: 48px;
+			left: 0;
+			width: 80px;
+			color: #13E8E9;
+			font-size: .8em;
+			text-align: left;
+			text-indent: 4px;
+			line-height: 14px;
+			padding-bottom: 2px;
+			font-family: Helvetica, Arial, sans-serif;
+			font-weight: bold;
+		}
+
+		.js-count-particles {
+			font-size: 1.1em;
+		}
+
+		#stats,
+		.count-particles {
+			-webkit-user-select: none;
+			margin-top: 5px;
+			margin-left: 5px;
+		}
+
+		#stats {
+			border-radius: 3px 3px 0 0;
+			overflow: hidden;
+		}
+
+		.count-particles {
+			border-radius: 0 0 3px 3px;
+		}
+
+
+
+		/* slider */
+
+		#sliderPopup {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.8);
+		}
+
+		#sliderContainer {
+			margin: 50px auto;
+			max-width: 600px;
+		}
+
+		#sliderContainer img {
+			max-width: 100%;
+			max-height: 400px;
+			display: block;
+			margin: 0 auto;
+		}
+
+		.close {
+			color: #fff;
+			position: absolute;
+			top: 10px;
+			right: 25px;
+			font-size: 35px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #bbb;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	</style>
+
 
 </head>
 
 <body>
+
 
 	<div class="fh5co-loader"></div>
 
@@ -84,15 +225,22 @@
 									8425</span></li>
 							<li><span class="first-block">Email:</span><span
 									class="second-block">saeedareffard@yahoo.com</span></li>
-							
+
 						</ul>
 					</div>
 					<div class="col-md-8">
-						<h2>Hello There!</h2>
-						<p>I have more than three years of software engineering, and I had the opportunity to work as a
-							front-end and back-end developer in mobile and web applications. I have been excited the
-							most about learning new technologies and best code practices, and I'm ready to showcase my
-							talent in software development.</p>
+						<h2>Hello There</h2>
+						<p> I am Saeed who is Experienced software developer with a track record of over three years in various roles,
+							including front-end, back-end, mobile
+							development, and database engineering. Known for a strong sense of curiosity and a constant
+							drive to learn and grow, I have
+							actively sought out diverse opportunities to broaden my skill set. Adaptable and versatile,
+							I excel in navigating different
+							technologies and environments, consistently delivering exceptional results. Committed to
+							staying at the forefront of the rapidly
+							evolving software development landscape, I bring a passion for innovation and a dedication
+							to contributing to the success of
+							projects.</p>
 						<p>
 						<ul class="fh5co-social-icons">
 							<li><a href="https://stackoverflow.com/users/8904708/saeed-areffard"><i
@@ -476,8 +624,41 @@
 				</div>
 			</div>
 		</div>
-
+		<div id="sliderPopup">
+			<span class="close">&times;</span>
+			<div id="sliderContainer" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#sliderContainer" data-slide-to="0" class="active"></li>
+					<li data-target="#sliderContainer" data-slide-to="1"></li>
+					<li data-target="#sliderContainer" data-slide-to="2"></li>
+					<li data-target="#sliderContainer" data-slide-to="3"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="images/pendy1.jpg" alt="pendy 1">
+					</div>
+					<div class="carousel-item">
+						<img src="images/pendy2.jpg" alt="pendy 2">
+					</div>
+					<div class="carousel-item">
+						<img src="images/pendy3.jpg" alt="pendy 3">
+					</div>
+					<div class="carousel-item">
+						<img src="images/pendy4.jpg" alt="pendy 4">
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#sliderContainer" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#sliderContainer" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
 		<div id="fh5co-work" class="fh5co-bg-dark">
+			<div id="particles-js"></div>
 			<div class="container">
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
@@ -488,12 +669,10 @@
 					<div class="col-md-6 text-center col-padding animate-box">
 						<a href="images/att.png" class="work" style="background-image: url(images/att.png);">
 							<div class="desc">
-								<h3>Attendance application</h3>
+								<h3>Attendance Application</h3>
 								<span>Fepco Erp Software</span>
-								<span>An Application for the employee's attendance and attendance-related
-									requests which I was working on during my
-									employment in Fepco</span>
-
+								<span>An application for employee attendance and attendance-related requests which I
+									worked on during my employment at Fepco.</span>
 							</div>
 						</a>
 					</div>
@@ -501,14 +680,13 @@
 						<a href="images/assessment.png" class="work"
 							style="background-image: url(images/assessment\ icon.jpeg);">
 							<div class="desc">
-								<h3>Assessment application</h3>
+								<h3>Assessment Application</h3>
 								<span>Fepco Erp Software</span>
-								<span>Application for evaluating the employees which I was working on during my
-									employment in Fepco.</span>
+								<span>An application for evaluating employees which I worked on during my employment at
+									Fepco.</span>
 							</div>
 						</a>
 					</div>
-
 					<div class="col-md-6 text-center col-padding animate-box">
 						<a href="http://niloofarsasannia.com/" class="work"
 							style="background-image: url(images/nilooofar-website.png);">
@@ -527,11 +705,22 @@
 							</div>
 						</a>
 					</div>
+					<div class="col-md-12 text-center col-padding animate-box"
+						style="background-color: white; background-size: contain; background-repeat: no-repeat; background-position: center center; background-image: url(images/Pendy\ Tejari\ Logo\ 02.png); padding: 20px;">
+						<a id="sliderButton" class="work">
+							<div class="desc">
+								<h3>Pendy Pay Project</h3>
+								<span>Brand New Freelance project which is for financial operations developed with
+									Flutter.</span>
+							</div>
+						</a>
+					</div>
 
 
 				</div>
 			</div>
 		</div>
+
 
 
 
@@ -546,7 +735,41 @@
 
 
 	</div>
+	<footer id="fh5co-footer" role="contentinfo">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-12">
+					<h3>About Me</h3>
+					<p>I have more than three years of software engineering, and I had the opportunity to work as a
+						front-end and back-end developer in mobile and web applications. I have been excited the
+						most about learning new technologies and best code practices, and I'm ready to showcase my
+						talent in software development.</p>
+				</div>
+				<div class="col-md-4 col-sm-12">
+					<h3>Links</h3>
+					<ul class="fh5co-footer-links">
+						<li><a href="#fh5co-header">Home</a></li>
+						<li><a href="#fh5co-about">About</a></li>
+						<li><a href="#fh5co-resume">Resume</a></li>
+						<li><a href="#fh5co-work">Work</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 col-sm-12">
+					<h3>Contact Information</h3>
+					<p>Email: saeedareffard@yahoo.com</p>
+					<p>Phone: 022 489 84 25</p>
 
+					<ul class="fh5co-social-icons">
+						<li><a href="https://linkedin.com/in/saeed-areffard"><i class="icon-linkedin2"></i></a></li>
+						<li><a href="https://stackoverflow.com/users/8904708/saeed-areffard"><i
+									class="icon-stackoverflow"></i></a></li>
+						<li><a href="mailto:saeedareffard@yahoo.com"><i class="icon-email"></i></a></li>
+						<li><a href="tel://0224898425"><i class="icon-phone2"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 	<!-- <div id="fh5co-footer">
 		<div class="container">
 			<div class="row">
@@ -573,14 +796,12 @@
 	<script src="js/jquery.stellar.min.js"></script>
 	<!-- Easy PieChart -->
 	<script src="js/jquery.easypiechart.min.js"></script>
-	<!-- Google Map -->
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-	<script src="js/google_map.js"></script>
 
+
+	<script src="js/particles.min.js"></script>
 	<!-- Main -->
-	<script src="js/main.js"></script>
 
+	<script src="js/main.js"></script>
 </body>
 
 </html>
