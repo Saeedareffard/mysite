@@ -222,8 +222,8 @@ var count_particles, stats, update;
 
 count_particles = document.querySelector(".js-count-particles");
 update = function () {
-  stats.begin();
-  stats.end();
+  // stats.begin();
+  // stats.end();
   if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
     count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
   }

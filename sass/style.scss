@@ -151,6 +151,7 @@ a {
 }
 p {
 	margin-bottom: 30px;
+	text-align: justify;
 }
 
 h1, h2, h3, h4, h5, h6, figure {
@@ -587,9 +588,12 @@ h1, h2, h3, h4, h5, h6, figure {
 			}
 		}
 		&.timeline-unverted{
-			text-align: right;
-			@media screen and (max-width: $screen-sm) {
-				text-align: left;
+			text-align: justify;
+			// @media screen and (max-width: $screen-sm) {
+			// 	text-align: justify;
+			// }
+			p{
+				text-align: justify;
 			}
 		}
 		&.timeline-inverted {
@@ -626,6 +630,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .timeline-body > p,
 .timeline-body > ul {
     margin-bottom: 0;
+	text-align: justify;
 }
 
 .timeline-body > p + p {
